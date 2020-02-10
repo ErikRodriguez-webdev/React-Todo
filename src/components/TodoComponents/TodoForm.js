@@ -26,7 +26,7 @@ class TodoForm extends React.Component {
   render() {
     return (
       <div>
-        <form>
+        <form onSubmit={this.formSubmitHandler}>
           <label htmlFor="Todo">ToDo: </label>
           <input
             name="Todo"
@@ -35,7 +35,7 @@ class TodoForm extends React.Component {
             value={this.state.task}
           />
 
-          <button onSubmit={this.formSubmitHandler}>Submit ToDo</button>
+          <button type="submit">Submit ToDo</button>
           <button>Remove Completed ToDo's</button>
         </form>
       </div>

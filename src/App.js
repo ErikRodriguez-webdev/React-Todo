@@ -11,6 +11,7 @@ class App extends React.Component {
     this.state = {
       todoArray: []
     };
+    console.log(this.state.todoArray);
   }
   // Add object function to array
   addObjToArray = (taskString) => {
@@ -25,7 +26,8 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
+        <h2>ToDo's For Today!</h2>
+        <TodoList todoData={this.state.todoArray} />
         <TodoForm addObjToArray={this.addObjToArray} />
       </div>
     );
