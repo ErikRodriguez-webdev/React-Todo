@@ -20,6 +20,7 @@ class TodoForm extends React.Component {
     // Props function to add object to array here
     //console.log(this.props);
     this.props.addObjToArray(this.state.task);
+    this.setState({ task: "" });
   };
 
   // Form inputs, Add button, and Clear button
@@ -36,7 +37,6 @@ class TodoForm extends React.Component {
           />
 
           <button type="submit">Submit ToDo</button>
-          <button>Remove Completed ToDo's</button>
         </form>
       </div>
     );

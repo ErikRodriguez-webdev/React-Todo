@@ -5,8 +5,8 @@ function Todo(props) {
   // Displaying tasks here
 
   return (
-    <ul>
-      <li>{props.allTask}</li>
+    <ul onClick={() => props.toggleComplete(props.todoData.id)}>
+      <li>{props.todoData.task}</li>
     </ul>
   );
 }

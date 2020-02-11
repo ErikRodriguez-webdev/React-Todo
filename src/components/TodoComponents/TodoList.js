@@ -5,13 +5,21 @@ import Todo from "./Todo";
 
 class TodoList extends React.Component {
   // Map through Array for each task Strings
-
   render() {
     return (
       <div>
         {this.props.todoData.map((each) => {
-          return <Todo allTask={each.task} />;
+          return (
+            <Todo
+              key={each.id}
+              todoData={each}
+              toggleComplete={this.props.toggleComplete}
+            />
+          );
         })}
+        <button onClick={() => this.props.removeCompleted()}>
+          Remove Completed ToDo's
+        </button>
       </div>
     );
   }

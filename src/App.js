@@ -11,7 +11,6 @@ class App extends React.Component {
     this.state = {
       todoArray: []
     };
-    console.log(this.state.todoArray);
   }
   // Add object function to array
   addObjToArray = (taskString) => {
@@ -23,11 +22,37 @@ class App extends React.Component {
     this.setState({ todoArray: [...this.state.todoArray, taskBuilt] });
   };
 
+  // Toggle completed boolean function
+  toggleComplete = (theId) => {
+    const copyOfTodoArray = this.state.todoArray.map((each) => {
+      if (each.id === theId) {
+        return { ...each, completed: !each.completed };
+      } else {
+        return each;
+      }
+    });
+    this.setState({
+      todoArray: copyOfTodoArray
+    });
+  };
+
+  // Remove completed ToDo's function
+  removeCompleted = () => {
+    const filterTodoArray = this.state.todoArray.filter((each) => {
+      return each.completed.indexOf(false);
+    });
+    this.setState({ todoArray: filterTodoArray });
+  };
+
   render() {
     return (
       <div>
         <h2>ToDo's For Today!</h2>
-        <TodoList todoData={this.state.todoArray} />
+        <TodoList
+          todoData={this.state.todoArray}
+          toggleComplete={this.toggleComplete}
+          removeCompleted={this.removeCompleted}
+        />
         <TodoForm addObjToArray={this.addObjToArray} />
       </div>
     );
