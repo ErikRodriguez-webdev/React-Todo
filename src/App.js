@@ -39,7 +39,7 @@ class App extends React.Component {
   // Remove completed ToDo's function
   removeCompleted = () => {
     const filterTodoArray = this.state.todoArray.filter((each) => {
-      return each.completed.indexOf(false);
+      return !each.completed;
     });
     this.setState({ todoArray: filterTodoArray });
   };
